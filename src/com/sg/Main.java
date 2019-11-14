@@ -1,5 +1,20 @@
 package com.sg;
 
+
+import org.jzy3d.chart.AWTChart;
+import org.jzy3d.chart.Chart;
+import org.jzy3d.chart.ChartLauncher;
+import org.jzy3d.colors.Color;
+import org.jzy3d.colors.ColorMapper;
+import org.jzy3d.colors.colormaps.ColorMapRainbow;
+import org.jzy3d.maths.Range;
+import org.jzy3d.plot3d.builder.Builder;
+import org.jzy3d.plot3d.builder.Mapper;
+import org.jzy3d.plot3d.builder.concrete.OrthonormalGrid;
+import org.jzy3d.plot3d.primitives.Shape;
+import org.jzy3d.plot3d.rendering.canvas.Quality;
+
+import static com.sg.Charts.drawChart;
 import static com.sg.Functions.mccormick;
 import static com.sg.Functions.michalewicz;
 import static com.sg.PSO.*;
@@ -28,5 +43,9 @@ public class Main {
         state = iterate(Functions::michalewicz, 30, state);
         state.report("Michalewicz (2D)");
         System.out.printf("f(2.20, 1.57)        : %.15f\n", michalewicz(new double[]{2.20, 1.57}));
+
+        drawChart();
+                
     }
+
 }
